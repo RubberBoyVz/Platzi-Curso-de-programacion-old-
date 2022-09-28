@@ -77,3 +77,4 @@ inputBorrarTeclas.addEventListener("click", function () {
 window.addEventListener("keydown", detectarTeclado);
 
 //dibujarLinea(color, 149, 149, 150, 150, lienzo2, 1);
+
