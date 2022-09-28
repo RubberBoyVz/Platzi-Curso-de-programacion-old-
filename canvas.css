@@ -52,8 +52,10 @@ label {
 
 .area-dibujo {
     border: 1px solid #ff0000;
+    /*
     width: 350px;
     height: 350px;
+    */
     margin-top: 10px;
     background-color: white;
 }
