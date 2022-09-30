@@ -8,8 +8,10 @@ class Billete {
 const inputDineroIngresado = document.getElementById("dinero-ingresado");
 const inputbuttonRetirar = document.getElementById("boton-retirar");
 let divBilletes = document.getElementById("billetes");
+let pRetiroMaximo = document.getElementById("retiro-maximo");
 
 let cantidadSolicitada;
+let cantidadDisponible = 0;
 let div;
 let cantidadBilletes;
 let entregado;
@@ -19,6 +21,7 @@ cajeroAutomatico.push(new Billete(50, 3));
 cajeroAutomatico.push(new Billete(20, 5));
 cajeroAutomatico.push(new Billete(10, 10));
 
+revisarDisponible();
 inputbuttonRetirar.addEventListener("click", leerDinero);
 
 function leerDinero() {
@@ -38,8 +41,10 @@ function revisarBilletes(cantidadSolicitada) {
                 cantidadBilletes = div;
             }
 
-            entregado.push(new Billete(x.valor, cantidadBilletes));
-            cantidadSolicitada -= x.valor * cantidadBilletes;
+            if (cantidadBilletes > 0) {
+                entregado.push(new Billete(x.valor, cantidadBilletes));
+                cantidadSolicitada -= x.valor * cantidadBilletes;
+            }
         }
     }
 
@@ -60,4 +65,12 @@ function crearMensaje(cantidadSolicitada) {
             divBilletes.appendChild(parrafoBillete);
         }
     }
+}
+
+function revisarDisponible() {
+    for (let x of cajeroAutomatico) {
+        cantidadDisponible += x.cantidad * x.valor;
+    }
+
+    pRetiroMaximo.innerHTML += cantidadDisponible;
 }

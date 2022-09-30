@@ -45,10 +45,14 @@ input[type=button]{
     cursor: pointer;
 }
 
-#formulario,#billetes{
+#formulario,#billetes,#retiro-maximo{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#retiro-maximo{
+    margin-top: 10px;
 }
 
 #billetes{
